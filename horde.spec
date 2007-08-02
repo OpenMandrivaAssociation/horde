@@ -1,6 +1,6 @@
 %define name    horde
-%define version 3.1.3
-%define release %mkrel 2
+%define version 3.1.4
+%define release %mkrel 1
 
 Name:       %{name}
 Version:    %{version}
@@ -60,8 +60,8 @@ and its modules) please visit http://www.horde.org/.
 
 %setup -q
 %patch2
-%patch4
-%patch5 -p1
+#patch4
+#patch5 -p1
 %patch6 -p1
 %patch7 -p0
 %patch8 -p1
