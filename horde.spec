@@ -17,7 +17,7 @@ Source0:    ftp://ftp.horde.org/pub/horde/%{name}-%{version}.tar.bz2
 Source1:    http://alexandre.alapetite.net/doc-alex/domxml-php4-php5/domxml-php4-to-php5.php.txt
 ############################
 Patch2:     %{name}-3.0.2-better-default-configuration.patch
-Patch4:     %{name}-3.1.1-registry.patch
+Patch4:     %{name}-3.1.4-registry.patch
 Patch5:     horde-3.1.2-kolab_php-reference.patch
 Patch6:     horde-3.1.3-usr_local.patch
 Patch7:     horde-no_icalenderdata_debug_log.diff
@@ -60,7 +60,7 @@ and its modules) please visit http://www.horde.org/.
 
 %setup -q
 %patch2
-#patch4
+%patch4
 #patch5 -p1
 %patch6 -p1
 %patch7 -p0
