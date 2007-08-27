@@ -69,11 +69,6 @@ and its modules) please visit http://www.horde.org/.
 # fix perms
 chmod 755 scripts/*.{php,sh,cron}
 
-# fix encoding
-for file in `find . -type f`; do
-    perl -pi -e 'BEGIN {exit unless -T $ARGV[0];} s/\r\n$/\n/;' $file
-done
-
 # nuke patch backup files
 find . -type f -name "*.orig" | xargs rm -f
 
