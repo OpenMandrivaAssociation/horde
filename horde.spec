@@ -45,6 +45,7 @@ Conflicts:  horde-forwards <= 2.2.2
 Conflicts:  horde-password <= 2.2.2
 Conflicts:  horde-vacation <= 2.2.2
 BuildArch:  noarch
+BuildRoot:  %{_tmppath}/%{name}-%{version}
 
 %description
 The Horde Framework provides a common structure and interface for Horde
