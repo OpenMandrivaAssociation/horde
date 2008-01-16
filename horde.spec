@@ -1,5 +1,5 @@
 %define name    horde
-%define version 3.1.5
+%define version 3.1.6
 %define release %mkrel 1
 
 Name:       %{name}
