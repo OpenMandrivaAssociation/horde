@@ -1,6 +1,6 @@
 %define name    horde
 %define version 3.2
-%define release %mkrel 1
+%define release %mkrel 2
 
 Name:       %{name}
 Version:    %{version}
@@ -16,6 +16,7 @@ Source0:    ftp://ftp.horde.org/pub/horde/%{name}-%{version}.tar.bz2
 # http://alexandre.alapetite.net/doc-alex/domxml-php4-php5
 Source1:    http://alexandre.alapetite.net/doc-alex/domxml-php4-php5/domxml-php4-to-php5.php.txt
 ############################
+Patch0:     %{name}-3.2-fix-include.patch
 Patch2:     %{name}-3.0.2-better-default-configuration.patch
 Patch4:     %{name}-3.2-registry.patch
 Patch6:     horde-3.2-usr_local.patch
@@ -56,6 +57,7 @@ and its modules) please visit http://www.horde.org/.
 %prep
 
 %setup -q
+%patch0 -p1
 %patch2
 %patch4 -p1
 %patch6 -p1
