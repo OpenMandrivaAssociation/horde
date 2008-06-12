@@ -1,6 +1,8 @@
 %define name    horde
 %define version 3.2
-%define release %mkrel 2
+%define release %mkrel 3
+
+%define _requires_exceptions pear(Text/rST\\(.php\\|/Formatter.php\\))
 
 Name:       %{name}
 Version:    %{version}
