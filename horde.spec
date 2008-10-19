@@ -1,5 +1,5 @@
 %define name    horde
-%define version 3.2.2
+%define version 3.3
 %define release %mkrel 1
 
 Name:       %{name}
@@ -17,7 +17,7 @@ Source0:    ftp://ftp.horde.org/pub/horde/%{name}-%{version}.tar.gz
 Source1:    http://alexandre.alapetite.net/doc-alex/domxml-php4-php5/domxml-php4-to-php5.php.txt
 ############################
 Patch2:     %{name}-3.0.2-better-default-configuration.patch
-Patch4:     %{name}-3.2.1-registry.patch
+Patch4:     %{name}-3.3-registry.patch
 Patch6:     horde-3.2-usr_local.patch
 URL:        http://www.horde.org/
 Requires:   apache-mod_php
