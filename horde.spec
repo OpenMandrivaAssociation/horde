@@ -1,6 +1,6 @@
 %define name    horde
 %define version 3.3.5
-%define release %mkrel 1
+%define release %mkrel 2
 
 %define _requires_exceptions pear(Horde/Kolab/FreeBusy.php)
 
@@ -56,7 +56,6 @@ the GNU Public License.  For more information (including help with Horde
 and its modules) please visit http://www.horde.org/.
 
 %prep
-
 %setup -q
 %patch2 -p 1
 %patch4 -p 1
@@ -77,9 +76,25 @@ rm -rf %{buildroot}
 install -d -m 755 %{buildroot}%{_webappconfdir}
 cat > %{buildroot}%{_webappconfdir}/%{name}.conf <<EOF
 # %{name} Apache configuration file
-Alias /%{name} %{_var}/www/%{name}
-<Directory %{_var}/www/%{name}>
+Alias /%{name} %{_datadir}/%{name}
+<Directory %{_datadir}/%{name}>
     Allow from all
+</Directory>
+
+<Directory %{_datadir}/%{name}/lib>
+    Deny from all
+</Directory>
+
+<Directory %{_datadir}/%{name}/locale>
+    Deny from all
+</Directory>
+
+<Directory %{_datadir}/%{name}/scripts>
+    Deny from all
+</Directory>
+
+<Directory %{_datadir}/%{name}/templates>
+    Deny from all
 </Directory>
 EOF
 
@@ -87,34 +102,26 @@ EOF
 find . -name .htaccess -exec rm -f {} \;
 
 # install files
-install -d -m 755 %{buildroot}%{_var}/www/%{name}
 install -d -m 755 %{buildroot}%{_datadir}/%{name}
-install -d -m 755 %{buildroot}%{_sysconfdir}
-cp -pR *.php %{buildroot}%{_var}/www/%{name}
-cp -pR admin %{buildroot}%{_var}/www/%{name}
-cp -pR js %{buildroot}%{_var}/www/%{name}
-cp -pR services %{buildroot}%{_var}/www/%{name}
-cp -pR themes %{buildroot}%{_var}/www/%{name}
-cp -pR util %{buildroot}%{_var}/www/%{name}
+cp -pR *.php %{buildroot}%{_datadir}/%{name}
+cp -pR admin %{buildroot}%{_datadir}/%{name}
+cp -pR js %{buildroot}%{_datadir}/%{name}
+cp -pR services %{buildroot}%{_datadir}/%{name}
+cp -pR themes %{buildroot}%{_datadir}/%{name}
+cp -pR util %{buildroot}%{_datadir}/%{name}
 cp -pR lib %{buildroot}%{_datadir}/%{name}
 cp -pR locale %{buildroot}%{_datadir}/%{name}
 cp -pR scripts %{buildroot}%{_datadir}/%{name}
 cp -pR templates %{buildroot}%{_datadir}/%{name}
+
+install -d -m 755 %{buildroot}%{_sysconfdir}
 cp -pR config %{buildroot}%{_sysconfdir}/%{name}
-
-# put domxml-php4-to-php5.php in place
-install -m0644 %{SOURCE1} %{buildroot}%{_datadir}/%{name}/lib/Horde/domxml-php4-to-php5.php
-
-# use symlinks to recreate original structure
-pushd %{buildroot}%{_var}/www/%{name}
-ln -s ../../..%{_sysconfdir}/%{name} config
-ln -s ../../..%{_datadir}/%{name}/lib .
-ln -s ../../..%{_datadir}/%{name}/locale .
-ln -s ../../..%{_datadir}/%{name}/templates .
-popd
 pushd %{buildroot}%{_datadir}/%{name}
 ln -s ../../..%{_sysconfdir}/%{name} config
 popd
+
+# put domxml-php4-to-php5.php in place
+install -m0644 %{SOURCE1} %{buildroot}%{_datadir}/%{name}/lib/Horde/domxml-php4-to-php5.php
 
 # activate configuration files
 for file in %{buildroot}%{_sysconfdir}/%{name}/*.dist; do
@@ -147,8 +154,7 @@ setup
 The setup used here differs from default one, to achieve better FHS compliance.
 - the configuration files are in /etc/horde
 - the log files are in /var/log/horde
-- the files accessibles from the web are in /var/www/horde
-- the files non accessibles from the web are in /usr/share/horde
+- the constant files are in /usr/share/horde
 
 post-installation
 -----------------
@@ -210,7 +216,6 @@ fi
 %config(noreplace) %{_sysconfdir}/%{name}
 %attr(-,apache,apache) %config(noreplace) %{_sysconfdir}/%{name}/conf.php 
 %{_datadir}/%{name}
-%{_var}/www/%{name}
 %attr(-,apache,apache) %{_var}/log/%{name}
 
 
