@@ -1,6 +1,6 @@
 %define name    horde
 %define version 3.3.5
-%define release %mkrel 3
+%define release %mkrel 4
 
 %define _requires_exceptions pear(Horde/Kolab/FreeBusy.php)
 
@@ -78,22 +78,27 @@ cat > %{buildroot}%{_webappconfdir}/%{name}.conf <<EOF
 # %{name} Apache configuration file
 Alias /%{name} %{_datadir}/%{name}
 <Directory %{_datadir}/%{name}>
-    Allow from all
+    Order allow,deny
+    Allow from localhost
 </Directory>
 
 <Directory %{_datadir}/%{name}/lib>
+    Order allow,deny
     Deny from all
 </Directory>
 
 <Directory %{_datadir}/%{name}/locale>
+    Order allow,deny
     Deny from all
 </Directory>
 
 <Directory %{_datadir}/%{name}/scripts>
+    Order allow,deny
     Deny from all
 </Directory>
 
 <Directory %{_datadir}/%{name}/templates>
+    Order allow,deny
     Deny from all
 </Directory>
 EOF
