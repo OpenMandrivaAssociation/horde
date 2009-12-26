@@ -1,6 +1,6 @@
 %define name    horde
-%define version 3.3.5
-%define release %mkrel 4
+%define version 3.3.6
+%define release %mkrel 1
 
 %define _requires_exceptions pear(Horde/Kolab/FreeBusy.php)
 
