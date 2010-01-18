@@ -1,6 +1,6 @@
 %define name    horde
 %define version 3.3.6
-%define release %mkrel 1
+%define release %mkrel 2
 
 %define _requires_exceptions pear(Horde/Kolab/FreeBusy.php)
 
@@ -189,11 +189,7 @@ EOF
 rm -rf %{buildroot}
 
 %post
-%if %mdkversion < 200700
-if [ "$1" = "1" ]; then
-	/sbin/service httpd condrestart
-fi
-%else
+%if %mdkversion < 201010
 %_post_webapp
 %endif
 
@@ -203,13 +199,7 @@ if [ $1 = 1 ]; then
 fi
 
 %postun
-%if %mdkversion < 200700
-if [ "$1" = "0" ]; then
-	/sbin/service httpd condrestart
-else
-	/sbin/service httpd condreload
-fi
-%else
+%if %mdkversion < 201010
 %_postun_webapp
 %endif
 
