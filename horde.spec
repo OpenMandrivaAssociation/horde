@@ -1,6 +1,6 @@
 %define name    horde
-%define version 3.3.6
-%define release %mkrel 2
+%define version 3.3.8
+%define release %mkrel 1
 
 %define _requires_exceptions pear(Horde/Kolab/FreeBusy.php)
 
@@ -44,7 +44,6 @@ Conflicts:  horde-forwards <= 2.2.2
 Conflicts:  horde-password <= 2.2.2
 Conflicts:  horde-vacation <= 2.2.2
 BuildArch:  noarch
-BuildRoot:  %{_tmppath}/%{name}-%{version}
 
 %description
 The Horde Framework provides a common structure and interface for Horde
