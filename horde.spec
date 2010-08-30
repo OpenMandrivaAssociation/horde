@@ -1,6 +1,6 @@
 %define name    horde
 %define version 3.3.8
-%define release %mkrel 2
+%define release %mkrel 3
 
 %define _requires_exceptions pear(Horde/Kolab/FreeBusy.php)
 
@@ -30,7 +30,10 @@ Requires:   horde-nag
 Requires:   horde-turba
 Requires:   horde-passwd
 Requires:   horde-kronolith
+Requires:   horde-imp
+Requires:   horde-vacation
 Requires:   apache-mod_php
+Requires:   php-imagick
 Requires:   php-xml
 Requires:   php-dom
 # webapp macros and scriptlets
