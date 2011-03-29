@@ -1,6 +1,6 @@
 %define name    horde
 %define version 3.3.9
-%define release %mkrel 2
+%define release %mkrel 3
 
 %define _requires_exceptions pear(Horde/Kolab/FreeBusy.php)
 
@@ -22,16 +22,16 @@ Patch2:     %{name}-3.3.2-better-default-configuration.patch
 Patch4:     %{name}-3.3.5-registry.patch
 Patch6:     horde-3.2-usr_local.patch
 URL:        http://www.horde.org/
-Requires:   horde-dimp
-Requires:   horde-gollem
-Requires:   horde-ingo
-Requires:   horde-mimp
-Requires:   horde-nag
-Requires:   horde-turba
-Requires:   horde-passwd
-Requires:   horde-kronolith
-Requires:   horde-imp
-Requires:   horde-vacation
+Suggests:   horde-dimp
+Suggests:   horde-gollem
+Suggests:   horde-ingo
+Suggests:   horde-mimp
+Suggests:   horde-nag
+Suggests:   horde-turba
+Suggests:   horde-passwd
+Suggests:   horde-kronolith
+Suggests:   horde-imp
+Suggests:   horde-vacation
 Requires:   apache-mod_php
 Suggests:   php-imagick
 Requires:   php-xml
