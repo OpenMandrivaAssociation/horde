@@ -218,7 +218,14 @@ fi
 %doc README README.mdv COPYING docs  scripts/SCRIPTS
 %config(noreplace) %{_webappconfdir}/%{name}.conf
 %config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
-%config(noreplace) %{_sysconfdir}/%{name}
+%config(noreplace) %{_sysconfdir}/%{name}/hooks.php
+%config(noreplace) %{_sysconfdir}/%{name}/conf.xml
+%config(noreplace) %{_sysconfdir}/%{name}/mime_drivers.php
+%config(noreplace) %{_sysconfdir}/%{name}/motd.php
+%config(noreplace) %{_sysconfdir}/%{name}/nls.php
+%config(noreplace) %{_sysconfdir}/%{name}/prefs.php
+%config(noreplace) %{_sysconfdir}/%{name}/registry.d/README
+%config(noreplace) %{_sysconfdir}/%{name}/registry.php
 %attr(-,apache,apache) %config(noreplace) %{_sysconfdir}/%{name}/conf.php 
 %{_datadir}/%{name}
 %attr(-,apache,apache) %{_var}/log/%{name}
