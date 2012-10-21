@@ -208,8 +208,8 @@ if [ $1 = 1 ]; then
     %create_ghostfile %{_sysconfdir}/%{name}/conf.php.bak apache apache 644
 fi
 
-%postun
 %if %mdkversion < 201010
+%postun
 %_postun_webapp
 %endif
 
