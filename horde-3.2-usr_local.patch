@@ -1,0 +1,21 @@
+diff -Naur horde-3.2/config/mime_drivers.php.dist horde-3.2-usr_local/config/mime_drivers.php.dist
+--- horde-3.2/config/mime_drivers.php.dist	2007-12-20 16:01:22.000000000 +0100
++++ horde-3.2-usr_local/config/mime_drivers.php.dist	2008-05-28 22:32:17.000000000 +0200
+@@ -405,7 +405,7 @@
+  * xlhtml homepage: http://chicago.sourceforge.net/xlhtml/
+  */
+ $mime_drivers['horde']['msexcel'] = array(
+-    'location' => '/usr/local/bin/xlhtml',
++    'location' => '/usr/bin/xlhtml',
+     'inline' => false,
+     'handles' => array(
+         'application/vnd.ms-excel', 'application/msexcel',
+@@ -423,7 +423,7 @@
+  * xlhtml homepage: http://chicago.sourceforge.net/xlhtml/
+  */
+ $mime_drivers['horde']['mspowerpoint'] = array(
+-    'location' => '/usr/local/bin/ppthtml',
++    'location' => '/usr/bin/ppthtml',
+     'inline' => false,
+     'handles' => array(
+         'application/vnd.ms-powerpoint', 'application/mspowerpoint'

@@ -1,0 +1,12 @@
+diff -Naur horde-3.3.2/config/conf.xml horde-3.3.2-better-default-configuration/config/conf.xml
+--- horde-3.3.2/config/conf.xml	2008-11-27 06:29:45.000000000 +0100
++++ horde-3.3.2-better-default-configuration/config/conf.xml	2008-12-14 19:48:32.000000000 +0100
+@@ -775,7 +775,7 @@
+ 
+       <case name="file" desc="File">
+        <configstring name="name" desc="Path to the log
+-       file">/tmp/horde.log</configstring>
++       file">/var/log/horde/horde.log</configstring>
+        <configsection name="params">
+         <configboolean name="append" required="false" desc="Should new log
+         entries be appended to an existing log file? If this is false, new log
