@@ -1,6 +1,6 @@
 %define name    horde
 %define version 3.3.11
-%define release: 4
+%define release: 5
 
 %define _requires_exceptions pear(Horde/Kolab/FreeBusy.php)\\|pear(PHPUnit/Framework.php)\\|pear(PHPUnit/Extensions/Story/TestCase.php)
 
