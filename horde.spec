@@ -1,12 +1,6 @@
-%define name    horde
-%define version 3.3.11
-%define release: 5
-
-%define _requires_exceptions pear(Horde/Kolab/FreeBusy.php)\\|pear(PHPUnit/Framework.php)\\|pear(PHPUnit/Extensions/Story/TestCase.php)
-
-Name:       %{name}
-Version:    %{version}
-Release:    %{release}
+Name:       horde
+Version:    3.3.11
+Release:    5
 Summary:    The Horde framework
 License:    GPL
 Group:      System/Servers
@@ -36,20 +30,6 @@ Requires:   apache-mod_php
 Suggests:   php-imagick
 Requires:   php-xml
 Requires:   php-dom
-# webapp macros and scriptlets
-%if %mdkversion < 200700
-%define _webconfdir %{_sysconfdir}/httpd/conf
-%define _webappconfdir %_webconfdir/webapps.d
-Requires(post): rpm-helper
-Requires(postun): rpm-helper
-BuildRequires: rpm-helper
-BuildRequires: rpm-mandriva-setup
-%else
-Requires(post):     rpm-helper >= 0.16
-Requires(postun):   rpm-helper >= 0.16
-BuildRequires:  rpm-helper >= 0.16
-BuildRequires:  rpm-mandriva-setup >= 1.23
-%endif
 Conflicts:  horde-accounts <= 2.1.2
 Conflicts:  horde-forwards <= 2.2.2
 Conflicts:  horde-password <= 2.2.2
