@@ -1,6 +1,6 @@
 %define name    horde
 %define version 3.3.11
-%define release %mkrel 3
+%define release: 4
 
 %define _requires_exceptions pear(Horde/Kolab/FreeBusy.php)\\|pear(PHPUnit/Framework.php)\\|pear(PHPUnit/Extensions/Story/TestCase.php)
 
@@ -208,10 +208,6 @@ if [ $1 = 1 ]; then
     %create_ghostfile %{_sysconfdir}/%{name}/conf.php.bak apache apache 644
 fi
 
-%postun
-%if %mdkversion < 201010
-%_postun_webapp
-%endif
 
 %files
 %defattr(-,root,root)
