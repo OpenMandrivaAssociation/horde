@@ -27,6 +27,7 @@ Suggests:   horde-kronolith
 Suggests:   horde-imp
 Suggests:   horde-vacation
 Requires:   apache-mod_php
+Requires:   apache-mod_socache_shmcb
 Suggests:   php-imagick
 Requires:   php-xml
 Requires:   php-dom
@@ -68,28 +69,23 @@ cat > %{buildroot}%{_webappconfdir}/%{name}.conf <<EOF
 # %{name} Apache configuration file
 Alias /%{name} %{_datadir}/%{name}
 <Directory %{_datadir}/%{name}>
-    Order allow,deny
-    Allow from localhost
+    Require host localhost
 </Directory>
 
 <Directory %{_datadir}/%{name}/lib>
-    Order allow,deny
-    Deny from all
+    Require all denied
 </Directory>
 
 <Directory %{_datadir}/%{name}/locale>
-    Order allow,deny
-    Deny from all
+    Require all denied
 </Directory>
 
 <Directory %{_datadir}/%{name}/scripts>
-    Order allow,deny
-    Deny from all
+    Require all denied
 </Directory>
 
 <Directory %{_datadir}/%{name}/templates>
-    Order allow,deny
-    Deny from all
+    Require all denied
 </Directory>
 EOF
 
