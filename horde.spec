@@ -1,6 +1,6 @@
 Name:       horde
 Version:    3.3.11
-Release:    6
+Release:    7
 Summary:    The Horde framework
 License:    GPL
 Group:      System/Servers
