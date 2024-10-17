@@ -15,7 +15,7 @@ Source1:    http://alexandre.alapetite.net/doc-alex/domxml-php4-php5/domxml-php4
 Patch2:     %{name}-3.3.2-better-default-configuration.patch
 Patch4:     %{name}-3.3.5-registry.patch
 Patch6:     horde-3.2-usr_local.patch
-URL:        http://www.horde.org/
+URL:        https://www.horde.org/
 Suggests:   horde-dimp
 Suggests:   horde-gollem
 Suggests:   horde-ingo
